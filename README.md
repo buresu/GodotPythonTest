@@ -80,6 +80,21 @@ install_name_tool -add_rpath @loader_path/ ./libpythonscript.dylib
 otool -L ./libpythonscript.dylib | grep -e libpython3.6m | cut -d ' ' -f 1 | xargs -I{} sh -c 'install_name_tool -change {} @rpath/`basename {}` ./libpythonscript.dylib'
 ```
 
+## Using pip
+
+### Easy Access
+```
+cd pythonscript/osx-64-cpython/bin
+./pip3 --version
+```
+
+### freeze and install
+```
+cd pythonscript/osx-64-cpython/bin
+./pip3 freeze > ../../../requirements.txt
+./pip3 install -r ../../../requirements.txt
+```
+
 ## Known Issues
 
 - Plugin load problem on Mac after packaging (TODO: Need to fix Godot or Godot Python)
