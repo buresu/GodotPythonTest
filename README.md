@@ -1,8 +1,7 @@
 # Godot Python Test
 
 Godot Python Test Projects  
-Tested on  
-Mac 10.14
+Tested on Mac 10.14
 
 ## Dependencies
 
@@ -47,8 +46,8 @@ chmod 755 ./lib/libpython3.6m.dylib
 
 Change Python shebang
 ```
-cd pythonscript/osx-64-cpython/bin/
-find . -type f -not -name 'python3' -not -name 'python3.6' -not -name 'python3.6m' | xargs gsed -i '1c #!./python3.6'
+cd pythonscript/osx-64-cpython/
+find ./bin/ -type f -not -name 'python3' -not -name 'python3.6' -not -name 'python3.6m' | xargs gsed -i '1c #!./bin/python3.6'
 ```
 
 Add LC_RPATH and fix LC_LOAD_DYLIB for python
@@ -84,15 +83,15 @@ otool -L ./libpythonscript.dylib | grep -e libpython3.6m | cut -d ' ' -f 1 | xar
 
 ### Easy Access
 ```
-cd pythonscript/osx-64-cpython/bin
-./pip3 --version
+cd pythonscript/osx-64-cpython/
+./bin/pip3 --version
 ```
 
 ### freeze and install
 ```
-cd pythonscript/osx-64-cpython/bin
-./pip3 freeze > ../../../requirements.txt
-./pip3 install -r ../../../requirements.txt
+cd pythonscript/osx-64-cpython/
+./bin/pip3 freeze > ../../../requirements.txt
+./bin/pip3 install -r ../../../requirements.txt
 ```
 
 ## Known Issues
