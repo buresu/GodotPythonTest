@@ -58,9 +58,9 @@ install_name_tool -add_rpath @loader_path/../lib/ ./bin/python3
 install_name_tool -add_rpath @loader_path/../lib/ ./bin/python3.6
 install_name_tool -add_rpath @loader_path/../lib/ ./bin/python3.6m
 
-otool -L ./bin/python3 | grep -e libpython3.6m | cut -d ' ' -f 1 | xargs -I{} sh -c 'install_name_tool -change {} @rpath/`basename {}` ./bin/python3'
-otool -L ./bin/python3.6 | grep -e libpython3.6m | cut -d ' ' -f 1 | xargs -I{} sh -c 'install_name_tool -change {} @rpath/`basename {}` ./bin/python3.6'
-otool -L ./bin/python3.6m | grep -e libpython3.6m | cut -d ' ' -f 1 | xargs -I{} sh -c 'install_name_tool -change {} @rpath/`basename {}` ./bin/python3.6m'
+otool -L ./bin/python3 | grep -e libpython3.6m | cut -d ' ' -f 1 | xargs -I{} sh -c 'install_name_tool -change {} @rpath/libpython3.6m.dylib ./bin/python3'
+otool -L ./bin/python3.6 | grep -e libpython3.6m | cut -d ' ' -f 1 | xargs -I{} sh -c 'install_name_tool -change {} @rpath/libpython3.6m.dylib ./bin/python3.6'
+otool -L ./bin/python3.6m | grep -e libpython3.6m | cut -d ' ' -f 1 | xargs -I{} sh -c 'install_name_tool -change {} @rpath/libpython3.6m.dylib ./bin/python3.6m'
 
 install_name_tool -id @rpath/libpython3.6m.dylib ./lib/libpython3.6m.dylib
 install_name_tool -add_rpath @loader_path/ ./lib/libpython3.6m.dylib
@@ -76,7 +76,7 @@ install_name_tool -id @rpath/libpythonscript.dylib ./libpythonscript.dylib
 
 install_name_tool -add_rpath @loader_path/ ./libpythonscript.dylib
 
-otool -L ./libpythonscript.dylib | grep -e libpython3.6m | cut -d ' ' -f 1 | xargs -I{} sh -c 'install_name_tool -change {} @rpath/`basename {}` ./libpythonscript.dylib'
+otool -L ./libpythonscript.dylib | grep -e libpython3.6m | cut -d ' ' -f 1 | xargs -I{} sh -c 'install_name_tool -change {} @rpath/libpython3.6m.dylib ./libpythonscript.dylib'
 ```
 
 ## Using pip
