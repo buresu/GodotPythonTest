@@ -75,6 +75,7 @@ cd pythonscript/osx-64-cpython/
 install_name_tool -id @rpath/libpythonscript.dylib ./libpythonscript.dylib
 
 install_name_tool -add_rpath @loader_path/ ./libpythonscript.dylib
+install_name_tool -add_rpath @loader_path/lib/ ./libpythonscript.dylib // for Editor
 
 otool -L ./libpythonscript.dylib | grep -e libpython3.6m | cut -d ' ' -f 1 | xargs -I{} sh -c 'install_name_tool -change {} @rpath/libpython3.6m.dylib ./libpythonscript.dylib'
 ```
