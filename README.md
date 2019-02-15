@@ -108,4 +108,4 @@ cd pythonscript/osx-64-cpython/
 - Python directory problem on Mac after packaging (TODO: Need to fix Godot Python)
 - Plugin Script has no way to load new script from script(Fixed current master!)
 - Plugin Script can not reload on editor(TODO: Need to fix Godot)
-- Godot Python will fail to ptrcall(TODO: Need to fix Godot Python)
+- Godot Python will fail to ptrcall(Fixed current master!)
